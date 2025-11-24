@@ -18,6 +18,11 @@
   --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.9);
 }
 
+/* Apply Space Grotesk Google Font globally */
+body, h1, h2, h3, h4, h5, h6, .navbar, .btn {
+  font-family: "Space Grotesk", system-ui, sans-serif !important;
+}
+
 /* Ensure scroll is allowed and layout can expand naturally */
 html,
 body {
@@ -371,6 +376,13 @@ Glow Effect for NavBar Links
   transform: scaleX(1);
 }
 
+/* Make bar glow subtly */
+section.border-top {
+  border-color: rgba(168, 85, 247, 0.35) !important;
+  background: rgba(15, 23, 42, 0.5);
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.15) inset;
+}
+
 /* Keep meta sections above background glow */
 .project-item > div {
   position: relative;
@@ -549,3 +561,40 @@ ion-toolbar {
   --background: #4a6cf7; /* soft colourful purple-blue toolbar */
   --color: #ffffff;
 }
+
+/* PAGE TITLES - NEON GLOW */
+
+/* ================================================
+   Page Titles (Neon Glow)
+   ================================================ */
+
+.page-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: 0.04em;
+  position: relative;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Neon glow underline for page titles */
+.page-title::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0.2);
+  width: 60%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-purple), var(--accent-green));
+  border-radius: 2px;
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.6);
+  transition: transform 0.3s ease-out;
+}
+
+/* Hover effect (optional, looks nice) */
+.page-title:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
