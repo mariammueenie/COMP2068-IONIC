@@ -1,8 +1,7 @@
 {{!--
   Home page for the Jane Doe portfolio.
-  - Displays intro content
-  - Contains two feature cards (About + Projects)
-  - A standalone CTA button (Try Ionic)
+  - The {{title}} variable is set in routes/index.js
+  - This page introduces Jane and links to her work via the navbar.
 --}}
 
 <section class="mb-4">
@@ -15,8 +14,6 @@
 </section>
 
 <section class="row g-3">
-
-  <!-- About Card -->
   <div class="col-md-6">
     <div class="card h-100">
       <div class="card-body">
@@ -25,40 +22,21 @@
           Learn more about my background, programming experience,
           and future goals.
         </p>
-        <a href="/about" class="btn btn-outline-primary btn-sm mt-2">
-          Go to About
-        </a>
+        <a href="/about" class="btn btn-outline-primary btn-sm">Go to About</a>
       </div>
     </div>
   </div>
 
-  <!-- Projects Card -->
   <div class="col-md-6">
     <div class="card h-100">
       <div class="card-body">
         <h5 class="card-title">Projects</h5>
         <p class="card-text">
-          Browse a selection of portfolio projects with filterable tags.
+          Browse a selection of portfolio projects with filterable tags,
+          ready for Ionic-powered demos.
         </p>
-
-        {{!-- Removed the Ionic button from inside this card --}}
-        <a href="/projects" class="btn btn-outline-primary btn-sm mt-2">
-          Go to Projects
-        </a>
+        <a href="/projects" class="btn btn-outline-primary btn-sm">View Projects</a>
       </div>
     </div>
   </div>
-
 </section>
-
-{{!-- Standalone CTA Button (OUTSIDE the card grid) --}}
-<div class="text-center mt-5">
-  <a 
-    href="https://github.com/mariammueenie/COMP2068-IONIC/tree/main/ClassExample"
-    class="btn btn-primary px-4 py-2"
-    target="_blank"
-    rel="noopener"
-  >
-    Click Here to Try Ionic!
-  </a>
-</div>
