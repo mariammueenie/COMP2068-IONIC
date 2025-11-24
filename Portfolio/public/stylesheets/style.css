@@ -29,7 +29,11 @@ body {
 /*added styles for ionic integration and scrolling*/
 html, body { height: auto; min-height: 100vh; overflow-y: auto !important;}
 
-ion-header { position: relative; z-index: 1000;}
+/* Ensure Ionic header appears above content */
+ion-header {
+  position: relative;
+  z-index: 1000;
+}
 
 /* Base body styling */
 body {
@@ -509,6 +513,16 @@ footer::before {
   filter: blur(1.5px);
   opacity: 0.85;
 }
-/* Let content (like the Bootstrap dropdown) overflow below the Ionic toolbar */
-ion-toolbar { overflow: visible;}
 
+/* Add a soft colourful hover effect to chips */
+.filter-chip:hover {
+  --background: #8fbeff;
+  --color: #fff;
+}
+
+/* Allow dropdown to show below the Ionic toolbar */
+ion-toolbar {
+  overflow: visible;
+  --background: #4a6cf7; /* soft colourful purple-blue toolbar */
+  --color: #ffffff;
+}
