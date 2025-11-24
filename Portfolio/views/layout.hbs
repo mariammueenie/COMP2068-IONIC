@@ -30,7 +30,7 @@
     <!-- Custom site-wide styles -->
     <link rel="stylesheet" href="/stylesheets/style.css">
   </head>
-  <body class="d-flex flex-column min-vh-100">
+  <body>
     <!--
       Main navigation bar:
       - Links to each main page of the portfolio
@@ -55,23 +55,33 @@
       </div>
     </nav>
 
-    <!--
+    {{!-- Global glow strip + status pill, under the navbar on every page --}}
+    <div class="hero-strip">
+      <div class="container hero-strip-inner">
+        <a href="/contact" class="status-pill status-pill-link">
+          <span class="status-dot"></span>
+          <span>Online &amp; open to opportunities</span>
+        </a>
+      </div>
+    </div>
+
+    {{!--
       Main content area:
       - The {{{body}}} placeholder is where each view (index, about,
         projects, contact) will be injected by Handlebars.
-    -->
-    <main class="flex-grow-1 py-5">
+    --}}
+    <main class="site-main py-5">
       <div class="container">
         {{{body}}}
       </div>
     </main>
 
-    <!--
+    {{!--
       Footer:
       - Uses the {{year}} helper from app.js
       - Contact links here are placeholders for Jane Doe
-    -->
-    <footer class="bg-light py-3 mt-auto">
+    --}}
+    <footer class="py-3 mt-auto">
       <div class="container text-center">
         <small>
           © {{year}} Jane Doe —
