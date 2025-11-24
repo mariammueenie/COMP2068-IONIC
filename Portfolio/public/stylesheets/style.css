@@ -1,26 +1,67 @@
+/* Base body styling (original) */
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: #f9fafc; /* light background for a more colourful feel */
 }
-/*added styles for ionic integration and scrolling*/
-html, body { height: auto; min-height: 100vh; overflow-y: auto !important;}
 
-ion-header { position: relative; z-index: 1000;}
+/* Allow page to scroll normally (added for Ionic) */
+html, body {
+  height: auto;
+  min-height: 100vh;
+  overflow-y: auto !important;
+}
 
+/* Ensure Ionic header appears above content */
+ion-header {
+  position: relative;
+  z-index: 1000;
+}
+
+/* Slightly brighter links to add colour without overdoing it */
 a {
-  color: #00B7FF;
+  color: #0077ff;
 }
 
-body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
-main .container { max-width: 900px; }
-h1 { font-weight: 700; }
-footer { font-size: 0.8em; color: #888; margin-top: 4em; border-top: 1px solid #ddd; padding-top: 2em; }
+/* Updated font family (original + system fonts) */
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
 
-/* Highlight selected Ionic chips when filtering projects */
+main .container { 
+  max-width: 900px; 
+}
+
+/* Make headings stand out a bit more with colour */
+h1 {
+  font-weight: 700;
+  color: #333;
+}
+
+footer { 
+  font-size: 0.8em; 
+  color: #666; 
+  margin-top: 4em; 
+  border-top: 1px solid #dcdcdc; 
+  padding-top: 2em; 
+  background: #f3f3f7; /* soft light colour for footer area */
+}
+
+/* Highlight the selected chip with bright blue + white text */
 .filter-chip.chip-selected {
-  --background: #0d6efd; /* Bootstrap primary color */
+  --background: #0d6efd; /* Bootstrap primary */
   --color: #ffffff;
 }
-/* Let content (like the Bootstrap dropdown) overflow below the Ionic toolbar */
-ion-toolbar { overflow: visible;}
 
+/* Add a soft colourful hover effect to chips */
+.filter-chip:hover {
+  --background: #8fbeff;
+  --color: #fff;
+}
+
+/* Allow dropdown to show below the Ionic toolbar */
+ion-toolbar {
+  overflow: visible;
+  --background: #4a6cf7; /* soft colourful purple-blue toolbar */
+  --color: #ffffff;
+}
