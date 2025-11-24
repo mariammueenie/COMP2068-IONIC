@@ -1,4 +1,3 @@
-
 {{!-- TODO: Add Ionic components here (chips, cards, segments) --}}
 <!DOCTYPE html>
 <html>
@@ -22,30 +21,60 @@
     <!-- Custom site-wide styles -->
     <link rel="stylesheet" href="/stylesheets/style.css">
   </head>
+
   <body class="d-flex flex-column min-vh-100">
-    <!--
-      Main navigation bar:
-      - Links to each main page of the portfolio
-      - Uses Bootstrap for styling
-    -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container">
-        <!-- Brand text: this is the site-wide "logo" -->
-        <a class="navbar-brand" href="/">Jane Doe Portfolio</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"
-          aria-controls="nav" aria-expanded="false" aria-label="Toggle nav">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div id="nav" class="collapse navbar-collapse">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="/projects">Projects</a></li>
-            <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+
+    <!-- Ionic header with desktop nav -->
+    <ion-header>
+      <ion-toolbar color="dark">
+        <div class="container d-flex align-items-center justify-content-between">
+          <!-- Brand / title -->
+          <ion-title class="m-0">
+            <a class="navbar-brand text-light text-decoration-none" href="/">
+              Jane Doe Portfolio
+            </a>
+          </ion-title>
+
+          <!-- Desktop / tablet nav: visible md and up -->
+          <ion-buttons slot="end" class="d-none d-md-flex flex-wrap justify-content-end">
+            <ion-button fill="clear">
+              <a class="nav-link text-light" href="/">Home</a>
+            </ion-button>
+            <ion-button fill="clear">
+              <a class="nav-link text-light" href="/about">About</a>
+            </ion-button>
+            <ion-button fill="clear">
+              <a class="nav-link text-light" href="/projects">Projects</a>
+            </ion-button>
+            <ion-button fill="clear">
+              <a class="nav-link text-light" href="/contact">Contact</a>
+            </ion-button>
+          </ion-buttons>
+        </div>
+      </ion-toolbar>
+    </ion-header>
+
+    {{!-- Mobile nav dropdown: shown only on small screens, below the header --}}
+    <div class="bg-dark d-md-none">
+      <div class="container py-2 d-flex justify-content-end">
+        <div class="dropdown">
+          <button
+            class="btn btn-outline-light btn-sm dropdown-toggle"
+            type="button"
+            id="mobileNavDropdown"
+            data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Menu
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="mobileNavDropdown">
+            <li><a class="dropdown-item" href="/">Home</a></li>
+            <li><a class="dropdown-item" href="/about">About</a></li>
+            <li><a class="dropdown-item" href="/projects">Projects</a></li>
+            <li><a class="dropdown-item" href="/contact">Contact</a></li>
           </ul>
         </div>
       </div>
-    </nav>
+    </div>
 
     <!--
       Main content area:
@@ -57,6 +86,18 @@
         {{{body}}}
       </div>
     </main>
+
+    <section class="py-2 border-top">
+      <div class="container text-center">
+        <ion-chip color="primary">
+          <ion-label>Ionic UI Enabled</ion-label>
+        </ion-chip>
+
+        <ion-button size="small" fill="outline" color="secondary" href="/projects">
+          View Ionic Demo Projects
+        </ion-button>
+      </div>
+    </section>
 
     <!--
       Footer:
