@@ -1,98 +1,119 @@
-{{!--
-  About page for Jane Doe.
-  This page is intentionally divided into clear sections so that
-  each section can later be converted into an Ionic component
-  (cards, accordions, segments, tabs, etc.) for your demo.
+{{!-- 
+  This About page explains the purpose of our project.
+  We are transforming a regular Express.js portfolio into a full Ionic mobile app.
+  These comments help instructors understand the structure and intention of the page.
 --}}
-
-<h1 class="page-title mb-3">About Me</h1>
+<h1 class="page-title mb-3">About This Project</h1>
 <p class="mb-4">
-  A quick snapshot of who I am, what I’ve worked on, and where I’m headed next
+  A quick snapshot of who I am, what I've worked on, and where I'm headed next
   as a developer.
 </p>
 
-<!-- General About Section -->
-<section class="mb-5">
-  <h3 class="mb-3">Who I Am</h3>
-  <p>
-    My name is Jane Doe. I grew up here in Ontario, and love swimming,
-    gardening, comics, and programming. I’m currently a student at Georgian
-    College in the Computer Programming Diploma Program. I plan to
-    transition into a Computer Science degree at Lakehead University,
-    starting next summer.
-  </p>
+{{!-- Small Ionic chip to highlight the tutorial --}}
+<section class="mb-4 text-center">
+  <ion-chip color="primary">
+    <ion-label>Ionic Transformation Tutorial</ion-label>
+  </ion-chip>
 </section>
 
-<hr>
-
-<!-- Programming Experience -->
+{{!-- 
+  SECTION 1: Introduction
+  Explains what the original project was (web portfolio)and introduces the transformation to Ionic.
+--}}
 <section class="mb-5">
-  <h3 class="mb-3">Programming Experience</h3>
-  <p>
-    This section is a placeholder for now. It is a great candidate for an
-    Ionic card list or an accordion where each item represents a language
-    or framework (for example: JavaScript, Node.js, Express, C++, Python,
-    MongoDB, and so on).
-  </p>
+  <ion-card class="mb-3">
+    <ion-card-content>
+      <h3 class="mb-3">From Web Portfolio to Ionic Mobile App</h3>
+      <p>
+        This project began as a standard Express.js and Handlebars portfolio website.
+        It included simple routes, static pages, and JSON-driven project data.
+        For our group tutorial presentation, we are transforming this web portfolio
+        into a fully mobile Ionic application.
+      </p>
+
+      <p>
+        The goal of the transformation is to demonstrate how a traditional web project
+        can be rebuilt using Ionic’s modern mobile components, responsive layout system,
+        and built-in gesture support. By recreating this portfolio inside Ionic, we show
+        how developers can take an existing website and convert it into a mobile-friendly,
+        app-like experience.
+      </p>
+    </ion-card-content>
+  </ion-card>
 </section>
 
-<!-- Work Experience -->
+{{!-- 
+  SECTION 2: Ionic Features
+  Lists exactly which Ionic components will be used when converting each part of the portfolio.
+--}}
 <section class="mb-5">
-  <h3 class="mb-3">Work Experience</h3>
-  <p>
-    Another placeholder section that can later display jobs, volunteer roles,
-    internships, or tech projects. In an Ionic version, each experience could
-    be its own card or timeline entry.
-  </p>
+  <ion-card class="mb-3">
+    <ion-card-content>
+      <h3 class="mb-3">What We Are Adding With Ionic</h3>
+      <p>
+        Each page from the original portfolio is enhanced using Ionic’s UI features:
+      </p>
+
+      <ul>
+        <li><strong>ion-header &amp; ion-toolbar</strong> for native-style app navigation</li>
+        <li><strong>ion-tabs</strong> to allow quick switching between Home, About, Projects, and Contact</li>
+        <li><strong>ion-card</strong> to format content cleanly on mobile screens</li>
+        <li><strong>ion-list &amp; ion-item</strong> to modernize the Projects and Skills sections</li>
+        <li><strong>ion-grid</strong> for responsive layouts on tablets and phones</li>
+        <li><strong>Gestures</strong> such as swipe and scroll animations</li>
+        <li><strong>Theming</strong> to match the original portfolio’s colours and personality</li>
+      </ul>
+
+      <p>
+        Instead of static content, Ionic allows the portfolio to feel interactive and
+        closer to a real mobile app experience.
+      </p>
+    </ion-card-content>
+  </ion-card>
 </section>
 
-<!-- Future Goals -->
+{{!-- 
+  SECTION 3: Why We Chose Ionic
+  Explains the reasoning behind the transformation and how it benefits developers.
+--}}
 <section class="mb-5">
-  <h3 class="mb-3">Future Goals</h3>
-  <p>
-    Use this section to describe long-term aspirations: completing degrees,
-    pursuing specific roles in software development, earning certifications,
-    or contributing to open-source projects. In Ionic, this could become a
-    simple list or a slide in a swiper component.
-  </p>
+  <ion-card class="mb-3">
+    <ion-card-content>
+      <h3 class="mb-3">Why Ionic?</h3>
+      <p>
+        Ionic is ideal for this project because it allows us to reuse web technologies
+        such as HTML, CSS, and JavaScript while producing an application that feels
+        native on iOS and Android. It is a practical example of how developers can
+        modernize older applications without rewriting everything from scratch.
+      </p>
+
+      <p>
+        By the end of the transformation, this portfolio will run smoothly in a browser,
+        as a mobile PWA, or inside a native shell using Capacitor.
+      </p>
+    </ion-card-content>
+  </ion-card>
 </section>
 
-<!-- Hobbies -->
+{{!-- 
+  SECTION 4: Summary
+  Wraps up the purpose of the page and gives a clear explanation for what the class will 
+  learn during the demonstration.
+--}}
 <section class="mb-5">
-  <h3 class="mb-3">Hobbies</h3>
-  <p>
-    Here you can expand on hobbies such as swimming, gardening, reading
-    comics, and any other activities you enjoy. This could be a fun area for
-    Ionic animations or image galleries in the future.
-  </p>
-</section>
+  <ion-card class="mb-3">
+    <ion-card-content>
+      <h3 class="mb-3">Summary</h3>
+      <p>
+        This About page outlines the purpose of our project: converting an Express-based
+        portfolio into an Ionic mobile application. Throughout the demo, we show how
+        Ionic components replace traditional HTML, how routing changes with tabs, and
+        how gestures and animations create a more polished user experience.
+      </p>
 
-<!-- Favourite Media -->
-<section class="mb-5">
-  <h3 class="mb-3">Favourite Media</h3>
-  <p>
-    Placeholder section for favourite movies, books, shows, music, games,
-    or creators. In an Ionic demo, each media type could be shown in a tab
-    or a segmented control.
-  </p>
-</section>
-
-<!-- Currently Watching/Reading -->
-<section class="mb-5">
-  <h3 class="mb-3">Currently Watching / Reading</h3>
-  <p>
-    Use this area to highlight what you are currently watching or reading.
-    Later, this could be connected to a small JSON file or API to show
-    “now playing / now reading” entries using Ionic cards.
-  </p>
-</section>
-
-<!-- Surprise Section -->
-<section class="mb-5">
-  <h3 class="mb-3">Surprise</h3>
-  <p>
-    This “Surprise” section is deliberately open-ended. It could contain an
-    easter egg, a fun fact, a hidden message, or an interactive Ionic
-    component (such as a small game or animation).
-  </p>
+      <p>
+        This transformation highlights the flexibility of Ionic and gives our class
+        a real example of how to migrate a simple web portfolio into a mobile-ready,
+        app-like interface.
+      </p>
 </section>
