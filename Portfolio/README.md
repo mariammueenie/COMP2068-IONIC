@@ -1,10 +1,10 @@
-# Assignment 01 — Portfolio
+# Assignment — Portfolio
 
 Welcome to my personal projects portfolio built with **Node.js**, **Express**, and **Handlebars (HBS)**. 
 Deployed to **Azure**.
 
 ## Live Site
-- URL: https://mariammportfolio.azurewebsites.net/
+- URL: FIXING IT WILL BE BACK IN LIKE A SECOND I PROMIISSEEE
 
 ## Tech Used
 - Express (router + HBS views)
