@@ -1,18 +1,18 @@
 {{!-- Layout for all pages --}}
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>{{title}} | Jane Doe Portfolio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Google Font: Space Grotesk -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
       rel="stylesheet"
-    >
+    />
 
     <!-- Bootstrap CSS -->
     <link
@@ -20,80 +20,59 @@
       rel="stylesheet"
     />
 
-    <!-- Ionic Web Component CSS (safe to keep even pre-Ionic) -->
+    <!-- Ionic Core CSS (for chips, etc.) -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"
     />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
 
-  <body class="d-flex flex-column min-vh-100">
+  <body>
 
-    {{!-- ============================================================
-         DESKTOP / TABLET NAVBAR (IONIC TOOLBAR)
-         ============================================================ --}}
-    <ion-header>
-      <ion-toolbar color="dark">
-        <div class="container d-flex align-items-center justify-content-between">
+    {{!-- ==========================================
+         MAIN NAVBAR (Bootstrap, works on all sizes)
+         ========================================== --}}
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container">
+        <a class="navbar-brand" href="/">Jane Doe Portfolio</a>
 
-          <ion-title class="m-0">
-            <a class="navbar-brand text-light text-decoration-none" href="/">
-              Jane Doe Portfolio
-            </a>
-          </ion-title>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNav"
+          aria-controls="mainNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-          <ion-buttons slot="end" class="d-none d-md-flex flex-wrap justify-content-end">
-            <ion-button fill="clear">
-              <a class="nav-link text-light" href="/">Home</a>
-            </ion-button>
-            <ion-button fill="clear">
-              <a class="nav-link text-light" href="/about">About</a>
-            </ion-button>
-            <ion-button fill="clear">
-              <a class="nav-link text-light" href="/projects">Projects</a>
-            </ion-button>
-            <ion-button fill="clear">
-              <a class="nav-link text-light" href="/contact">Contact</a>
-            </ion-button>
-          </ion-buttons>
-
-        </div>
-      </ion-toolbar>
-    </ion-header>
-
-
-    {{!-- ============================================================
-         MOBILE NAV (Bootstrap Dropdown)
-         ============================================================ --}}
-    <div class="bg-dark d-md-none">
-      <div class="container py-2 d-flex justify-content-end">
-        <div class="dropdown">
-          <button
-            class="btn btn-outline-light btn-sm dropdown-toggle"
-            type="button"
-            id="mobileNavDropdown"
-            data-bs-toggle="dropdown"
-            aria-expanded="false">
-            Menu
-          </button>
-
-          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="mobileNavDropdown">
-            <li><a class="dropdown-item" href="/">Home</a></li>
-            <li><a class="dropdown-item" href="/about">About</a></li>
-            <li><a class="dropdown-item" href="/projects">Projects</a></li>
-            <li><a class="dropdown-item" href="/contact">Contact</a></li>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/projects">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact">Contact</a>
+            </li>
           </ul>
         </div>
       </div>
-    </div>
+    </nav>
 
-
-    {{!-- ============================================================
-         GLOWING HERO STRIP (NEON CYBER EFFECT)
-         ============================================================ --}}
+    {{!-- ==========================================
+         HERO GLOW STRIP
+         ========================================== --}}
     <div class="hero-strip">
       <div class="container hero-strip-inner">
         <a href="/contact" class="status-pill status-pill-link">
@@ -103,41 +82,44 @@
       </div>
     </div>
 
-
-    {{!-- ============================================================
+    {{!-- ==========================================
          MAIN CONTENT
-         ============================================================ --}}
-    <main class="site-main py-5">
+         ========================================== --}}
+    <main class="site-main py-4">
       <div class="container">
         {{{body}}}
       </div>
     </main>
 
-
-    {{!-- ============================================================
+    {{!-- ==========================================
          FOOTER
-         ============================================================ --}}
-    <footer class="py-3 mt-auto position-relative">
+         ========================================== --}}
+    <footer class="py-3 mt-auto position-relative footer-glow">
       <div class="container text-center">
         <small>
-          © {{year}} Jane Doe — 
+          © {{year}} Jane Doe —
           <a href="https://github.com/janedoe" target="_blank" rel="noopener">GitHub</a> ·
-          <a href="https://www.linkedin.com/in/jane-doe" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/jane-doe" target="_blank" rel="noopener">
+            LinkedIn
+          </a>
         </small>
       </div>
     </footer>
 
-
-    <!-- Bootstrap JS -->
+    <!-- Bootstrap JS (includes Popper for navbar/menu) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Ionic Web Component JS -->
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
-    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+    <!-- Ionic JS (for chips & other Ionic components) -->
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js">
+    </script>
+    <script
+      nomodule
+      src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js">
+    </script>
 
-    <!-- Project filter script -->
+    <!-- Projects filter logic -->
     <script src="/javascripts/projects-filter.js"></script>
-
   </body>
 </html>
-

@@ -1,67 +1,50 @@
 {{!--
   Home page for the Jane Doe portfolio.
-  - Displays intro content
-  - Contains two feature cards (About + Projects)
-  - A standalone CTA button (Try Ionic)
+  This page introduces Jane and links to other sections.
 --}}
 
 <section class="mb-4">
   <h1 class="page-title">{{title}}</h1>
-  <h3 class="mb-3">Jane Doe</h3>
-  <p class="lead">
-    Welcome to my portfolio. Here you can learn more about me,
-    explore some of my projects, and find ways to get in touch.
+  <h3 class="mb-3 text-center">Jane Doe</h3>
+
+  <p class="lead text-center">
+    Welcome to my portfolio!  
+    Explore who I am, the projects I've built, and how to get in touch.
   </p>
 </section>
 
-<section class="row g-3">
+<section class="row g-4">
 
-  <!-- About Card -->
+  <!-- ABOUT CARD -->
   <div class="col-md-6">
     <div class="card h-100">
       <div class="card-body">
         <h5 class="card-title">About Me</h5>
         <p class="card-text">
-          Learn more about my background, programming experience,
-          and future goals.
+          Learn about my background, experience, hobbies, and future goals.
         </p>
-        <a href="/about" class="btn btn-outline-primary btn-sm mt-2">
-          Go to About
-        </a>
+        <a href="/about" class="btn btn-outline-primary btn-sm">Go to About</a>
       </div>
     </div>
   </div>
 
-  <!-- Projects Card -->
+  <!-- PROJECTS CARD -->
   <div class="col-md-6">
     <div class="card h-100">
       <div class="card-body">
         <h5 class="card-title">Projects</h5>
         <p class="card-text">
-          Browse a selection of portfolio projects with filterable tags.
+          Browse a selection of my portfolio work — now with filtering,
+          tags, and Ionic-enhanced UI elements.
         </p>
 
-        {{!-- Removed the Ionic button from inside this card --}}
-        <a href="/projects" class="btn btn-outline-primary btn-sm mt-2">
-          Go to Projects
-        </a>
-      </div>
-    </div>
-  </div>
-
-</section>
-
-{{!-- Standalone CTA Button (OUTSIDE the card grid) --}}
-<section class="py-3 border-top mt-5">
-  <div class="container text-center">
-    <a 
-      href="https://github.com/mariammueenie/COMP2068-IONIC/tree/main/ClassExample"
-      class="btn btn-primary px-4 py-2"
-      target="_blank"
-      rel="noopener"
-    >
-      Click Here to Try Ionic!
-    </a>
-  </div>
-</section>
+        {{!-- IONIC DEMO BUTTON --}}
+        <ion-button
+  class="neon-ionic mt-3"
+  href="https://github.com/mariammueenie/COMP2068-IONIC/tree/main/ClassExample"
+  target="_blank"
+  fill="solid"
+>
+  Click Here to Try Ionic!
+</ion-button>
 

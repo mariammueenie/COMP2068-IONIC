@@ -1,41 +1,71 @@
-
 {{!--
-  Contact page.
-  Currently this is a static form with a disabled submit button.
-  In the future, this could:
-  - Hook into an Express POST route
-  - Send emails via a service
-  - Be rebuilt as an Ionic form component.
+  Contact page for Jane Doe.
+  Clean, modern, dark-themed form styled to match the portfolio.
 --}}
 
-<h1 class="page-title mb-3">Contact Me</h1>
-<p class="mb-4">
-  If you’d like to talk about a project, collaboration, or opportunity,
-  feel free to drop a message below. This form is a visual placeholder
-  for now, but the layout is ready for future functionality.
-</p>
+<h1 class="page-title mb-4">Contact Me</h1>
 
 <section class="mb-4">
+  <h3>Let's Connect</h3>
+  <p>
+    Whether you’d like to discuss a project, collaborate, or just say hello,
+    feel free to reach out! I aim to respond within 24 hours.
+  </p>
+</section>
+
+<section>
   <form class="row g-3">
+
+    <!-- NAME -->
     <div class="col-md-6">
       <label class="form-label">Your Name</label>
-      <input class="form-control" type="text" placeholder="Jane Doe">
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Enter your name"
+      >
     </div>
+
+    <!-- EMAIL -->
     <div class="col-md-6">
       <label class="form-label">Your Email</label>
-      <input class="form-control" type="email" placeholder="you@example.com">
+      <input
+        class="form-control"
+        type="email"
+        placeholder="you@example.com"
+      >
     </div>
+
+    <!-- SUBJECT -->
     <div class="col-12">
-      <label class="form-label">
-        Message
-      </label>
-      <textarea class="form-control" rows="5" placeholder="Say hello!"></textarea>
+      <label class="form-label">Subject</label>
+      <input
+        class="form-control"
+        type="text"
+        placeholder="How can I help?"
+      >
     </div>
+
+    <!-- MESSAGE -->
     <div class="col-12">
-      {{!-- Functionality can be added later; left disabled on purpose. --}}
-      <button class="btn btn-primary" type="submit" disabled>
+      <label class="form-label">Message</label>
+      <textarea
+        class="form-control"
+        rows="5"
+        placeholder="Write your message here..."
+      ></textarea>
+    </div>
+
+    <!-- SUBMIT BUTTON -->
+    <div class="col-12">
+      <button
+        class="btn btn-primary"
+        type="button"
+        disabled
+      >
         Submit (coming soon)
       </button>
     </div>
+
   </form>
 </section>

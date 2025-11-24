@@ -1,97 +1,79 @@
-// public/javascripts/projects-filter.js
-// =============================================================
-// Client-side filtering logic for the Projects page.
-// - Listens for clicks on Ionic <ion-chip> elements that have
-//   the "filter-chip" class
-// - Each chip has data-filter (category) and data-value (value)
-// - Toggles filters and shows/hides projects accordingly
-//
-// This file is written in plain JavaScript so it works directly
-// in the browser with no build step. Ionic web components are
-// loaded via CDN in layout.hbs.
-// =============================================================
+/* ============================================================
+   Project Filtering with Ionic Chips
+   - Smooth fade animations
+   - Multi-category filtering
+   - Chip highlighting state
+   ============================================================ */
 
-(function() {
-  // Find all project items on the page.
-  const projectItems = document.querySelectorAll('.project-item');
-  if (!projectItems.length) {
-    // If there are no projects on the page, we quietly exit.
-    return;
-  }
+document.addEventListener("DOMContentLoaded", () => {
+  const chips = document.querySelectorAll(".filter-chip");
+  const projects = document.querySelectorAll("#project-list .project-item");
 
-  // Object to store active filters for each category.
-  // - language: filters by data-languages
-  // - concept:  filters by data-concepts
-  // - type:     filters by data-type
-  const activeFilters = {
-    language: new Set(),
-    concept: new Set(),
-    type: new Set()
+  // Store active filters here
+  let activeFilters = {
+    language: null,
+    concept: null,
+    type: null
   };
 
-  // Utility: split a data-* string into an array of trimmed values.
-  function splitDataAttribute(value) {
-    if (!value) return [];
-    return value.split(',').map(v => v.trim());
-  }
-
-  // Utility: check whether a project "matches" a filter set
-  // for a particular attribute (languages, concepts, type).
-  function matchesFilterSet(itemValues, filterSet) {
-    // If no filters are selected for that category, treat as "match all".
-    if (!filterSet || filterSet.size === 0) return true;
-    // If any selected filter value appears in the itemValues array,
-    // this project matches for that category.
-    return itemValues.some(v => filterSet.has(v));
-  }
-
-  // Apply the current active filters to all project items.
+  /* ------------------------------------------------------------
+     Apply Filters
+     ------------------------------------------------------------ */
   function applyFilters() {
-    projectItems.forEach(item => {
-      const languages = splitDataAttribute(item.getAttribute('data-languages'));
-      const concepts  = splitDataAttribute(item.getAttribute('data-concepts'));
-      const types     = splitDataAttribute(item.getAttribute('data-type'));
+    projects.forEach(project => {
+      const langList = project.dataset.languages?.split(",") || [];
+      const conceptList = project.dataset.concepts?.split(",") || [];
+      const typeList = project.dataset.type?.split(",") || [];
 
-      const languageMatch = matchesFilterSet(languages, activeFilters.language);
-      const conceptMatch  = matchesFilterSet(concepts, activeFilters.concept);
-      const typeMatch     = matchesFilterSet(types, activeFilters.type);
+      const matchLanguage =
+        !activeFilters.language || langList.includes(activeFilters.language);
 
-      // A project is visible only if it matches ALL active categories.
-      const isVisible = languageMatch && conceptMatch && typeMatch;
+      const matchConcept =
+        !activeFilters.concept || conceptList.includes(activeFilters.concept);
 
-      item.style.display = isVisible ? 'block' : 'none';
+      const matchType =
+        !activeFilters.type || typeList.includes(activeFilters.type);
+
+      const isVisible = matchLanguage && matchConcept && matchType;
+
+      // Smooth fade animation
+      project.style.transition = "opacity 0.25s ease, transform 0.25s ease";
+      project.style.opacity = isVisible ? "1" : "0";
+      project.style.transform = isVisible ? "scale(1)" : "scale(0.96)";
+      project.style.pointerEvents = isVisible ? "auto" : "none";
+
+      setTimeout(() => {
+        project.style.display = isVisible ? "block" : "none";
+      }, 250);
     });
   }
 
-  // Find all filter chips.
-  const chips = document.querySelectorAll('.filter-chip');
+  /* ------------------------------------------------------------
+     Chip Click Handler (toggle states)
+     ------------------------------------------------------------ */
   chips.forEach(chip => {
-    // Add a click handler to toggle the chip's active state.
-    chip.addEventListener('click', () => {
-      const category = chip.getAttribute('data-filter'); // language/concept/type
-      const value = chip.getAttribute('data-value');
+    chip.addEventListener("click", () => {
+      const filterType = chip.dataset.filter;  // language / concept / type
+      const filterValue = chip.dataset.value;
 
-      if (!category || !value || !activeFilters[category]) {
-        return;
-      }
-
-      // Visually toggle a CSS class for the chip.
-      // Ionic chips respond nicely when you toggle a class like "chip-selected".
-      chip.classList.toggle('chip-selected');
-
-      if (activeFilters[category].has(value)) {
-        // If already selected, remove from filter set.
-        activeFilters[category].delete(value);
+      // Clicking the same chip again removes filter
+      if (activeFilters[filterType] === filterValue) {
+        activeFilters[filterType] = null;
+        chip.classList.remove("chip-selected");
       } else {
-        // Otherwise, add it.
-        activeFilters[category].add(value);
+        activeFilters[filterType] = filterValue;
+
+        // Clear selection for other chips in this category
+        chips.forEach(c => {
+          if (c.dataset.filter === filterType) {
+            c.classList.remove("chip-selected");
+          }
+        });
+
+        chip.classList.add("chip-selected");
       }
 
-      // Re-apply filters whenever any chip changes.
       applyFilters();
     });
   });
-
-  // Optional: initial call to ensure everything is visible on load.
-  applyFilters();
-})();
+});
