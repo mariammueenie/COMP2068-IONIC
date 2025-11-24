@@ -9,7 +9,7 @@
     front-end script (projects-filter.js) can hook into.
 --}}
 
-<h1 class="mb-4">Projects</h1>
+<h1 class="page-title mb-4">Projects</h1>
 <p class="mb-4">
   Below is a selection of Jane Doe’s portfolio projects. You can use the
   filter chips to narrow projects by language, concept, or type
@@ -80,10 +80,10 @@
   {{#each projects}}
     <li
       class="list-group-item project-item mb-2"
-      data-languages="{{join this.languages ',')}}"
-      data-concepts="{{join this.concepts ',')}}"
-      data-type="{{join this.type ',')}}"
-      data-tags="{{join this.tags ',')}}"
+      data-languages="{{join this.languages ","}}"
+      data-concepts="{{join this.concepts ","}}"
+      data-type="{{join this.type}}"
+      data-tags="{{join this.tags}}"
     >
       <h5 class="mb-1">{{this.name}}</h5>
       <p class="mb-2">{{this.description}}</p>
