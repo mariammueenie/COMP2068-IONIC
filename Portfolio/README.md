@@ -4,7 +4,7 @@ Welcome to my personal projects portfolio built with **Node.js**, **Express**, a
 Deployed to **Azure**.
 
 ## Live Site
-- URL: FIXING IT WILL BE BACK IN LIKE A SECOND I PROMIISSEEE
+- URL: https://comp2068-ionic.onrender.com/projects
 
 ## Tech Used
 - Express (router + HBS views)
